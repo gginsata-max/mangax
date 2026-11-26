@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Manga Okuyucu
+Comment=SQLite Okuma Takipli PDF Manga Okuyucu
+Exec=/usr/bin/manga-reader --resume
+TryExec=/usr/bin/manga-reader
+Icon=dev.hobi.MangaReader
+Terminal=false
+Categories=Utility;Graphics;Viewer;
+MimeType=application/pdf;
+StartupWMClass=dev.hobi.MangaReader
+X-Purism-FormFactor=Workstation;Mobile;

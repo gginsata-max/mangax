@@ -1,0 +1,48 @@
+# Secrets & environment
+.env
+.env.*
+*.key
+*.pem
+*.rsa
+*.pub
+*secret*
+*token*
+
+# Databases & local libraries
+*.db
+*.db-wal
+*.db-shm
+*.db.bak
+*.sqlite
+*.sqlite3
+MangaLibrary/
+old/
+-yeni/
+.work/
+
+# Media & archives
+*.pdf
+*.cbz
+*.cbr
+*.zip
+*.tar.gz
+
+# Build & Python artifacts
+dist/
+build/
+*.apk
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+*.log
+*.tmp
+
+# Editor & OS metadata
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/

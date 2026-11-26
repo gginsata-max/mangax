@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.hobi.MangaReader</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Manga Okuyucu</name>
+  <summary>Phosh ve Linux Mobil uyumlu GTK4 + Libadwaita PDF Manga Okuyucu</summary>
+  <description>
+    <p>
+      Yerel manga PDF arsivlerini hizli sayfa onbellekleme, GPU yakinlastirma,
+      okuma ilerlemesi takibi ve dahili klasor/PDF yukleme arayuzu ile okumanizi saglar.
+    </p>
+  </description>
+  <launchable type="desktop-id">dev.hobi.MangaReader.desktop</launchable>
+</component>

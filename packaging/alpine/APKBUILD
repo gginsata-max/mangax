@@ -1,0 +1,33 @@
+# Maintainer: gginsata-max <gginsata-max@users.noreply.github.com>
+pkgname=manga-reader
+pkgver=1.1.0
+pkgrel=0
+pkgdesc="Linux Mobile GTK4 + Libadwaita PDF Manga Okuyucu"
+url="https://github.com/gginsata-max/mangax"
+arch="noarch"
+license="MIT"
+depends="python3 py3-gobject3 gtk4.0 libadwaita poppler-glib poppler-utils cairo xdg-utils"
+install="$pkgname.post-install $pkgname.post-upgrade $pkgname.post-deinstall"
+options="!check"
+
+package() {
+	install -d "$pkgdir/usr/bin" \
+		"$pkgdir/usr/share/manga-reader/mobile_app" \
+		"$pkgdir/usr/share/applications" \
+		"$pkgdir/usr/share/icons/hicolor/scalable/apps" \
+		"$pkgdir/usr/share/metainfo" \
+		"$pkgdir/usr/share/doc/manga-reader"
+
+	install -m644 "$startdir/../../mobile_app/__init__.py" "$pkgdir/usr/share/manga-reader/mobile_app/__init__.py"
+	install -m755 "$startdir/../../mobile_app/reader.py" "$pkgdir/usr/share/manga-reader/mobile_app/reader.py"
+	install -m644 "$startdir/../../mobile_app/README.md" "$pkgdir/usr/share/doc/manga-reader/README.md"
+	install -m644 "$startdir/dev.hobi.MangaReader.desktop" "$pkgdir/usr/share/applications/dev.hobi.MangaReader.desktop"
+	install -m644 "$startdir/dev.hobi.MangaReader.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/dev.hobi.MangaReader.svg"
+	install -m644 "$startdir/dev.hobi.MangaReader.metainfo.xml" "$pkgdir/usr/share/metainfo/dev.hobi.MangaReader.metainfo.xml"
+
+	cat > "$pkgdir/usr/bin/manga-reader" <<'WRAPPER'
+#!/bin/sh
+PYTHONPATH=/usr/share/manga-reader exec python3 /usr/share/manga-reader/mobile_app/reader.py "$@"
+WRAPPER
+	chmod 0755 "$pkgdir/usr/bin/manga-reader"
+}
